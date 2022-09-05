@@ -1,0 +1,115 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+// Variables
+$primary: #ffd000;
+
+// Mixins
+@mixin montserrat() {
+    font-family: "Montserrat", sans-serif;
+}
+
+@mixin opensans() {
+    font-family: "Open Sans", sans-serif;
+}
+
+// Base Styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+    @include montserrat();
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// Navbar
+.navbar {
+    width: 100vw;
+    height: 100px;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1350px;
+        margin: 0 auto;
+        height: 100%;
+        padding: 0 25px;
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+
+        &-logo {
+            width: 50px;
+        }
+
+        &-text {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-left: 20px;
+            @include montserrat();
+            text-transform: capitalize;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        align-items: center;
+
+        &-item:nth-child(n + 2) {
+            margin-left: 20px;
+        }
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 1rem;
+        text-decoration: none;
+        @include montserrat();
+        font-weight: 300;
+        letter-spacing: 1px;
+
+        &.active {
+            color: $primary;
+        }
+    }
+}
+
+// Header
+.header {
+    width: 100vw;
+    height: 75vh;
+    padding: 100px 0;
+    background: url("../assets/images/header-bg.jpg") center/cover fixed
+        no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__content {
+        max-width: 1350px;
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
