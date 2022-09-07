@@ -1,16 +1,21 @@
 // Google Fonts
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 // Variables
-$primary: #ffd000;
+$primary: #ff7b00;
+$container: 1350px;
 
 // Mixins
 @mixin montserrat() {
     font-family: "Montserrat", sans-serif;
 }
 
-@mixin opensans() {
-    font-family: "Open Sans", sans-serif;
+@mixin lato() {
+    font-family: "Lato", sans-serif;
+}
+
+@mixin roboto() {
+    font-family: "Roboto", sans-serif;
 }
 
 // Base Styles
@@ -24,7 +29,7 @@ body {
     height: 100%;
     width: 100vw;
     overflow-x: hidden;
-    @include montserrat();
+    @include roboto();
 }
 
 html {
@@ -44,7 +49,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 1350px;
+        max-width: $container;
         margin: 0 auto;
         height: 100%;
         padding: 0 25px;
@@ -65,7 +70,11 @@ html {
             @include montserrat();
             text-transform: capitalize;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+
+            span {
+                font-weight: 300;
+            }
         }
     }
 
@@ -83,11 +92,13 @@ html {
         color: #fff;
         font-size: 1rem;
         text-decoration: none;
-        @include montserrat();
-        font-weight: 300;
+        @include roboto();
+        font-weight: 400;
         letter-spacing: 1px;
+        transition: color 0.25s ease;
 
-        &.active {
+        &.active,
+        &:hover {
             color: $primary;
         }
     }
@@ -97,6 +108,7 @@ html {
 .header {
     width: 100vw;
     height: 75vh;
+    min-height: 775px;
     padding: 100px 0;
     background: url("../assets/images/header-bg.jpg") center/cover fixed
         no-repeat;
@@ -105,11 +117,158 @@ html {
     justify-content: center;
 
     &__content {
-        max-width: 1350px;
+        max-width: $container;
         padding: 0 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    &__title {
+        color: #fff;
+        @include montserrat();
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        text-align: center;
+
+        span {
+            color: $primary;
+        }
+    }
+
+    &__text {
+        color: #ccc;
+        @include lato();
+        font-weight: 300;
+        width: 75%;
+        margin: 1em auto;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1.8em;
+    }
+
+    &__btn-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        & > .btn:nth-child(2) {
+            margin-left: 15px;
+        }
+    }
+
+    &__svg {
+        position: absolute;
+        filter: invert(48%) sepia(90%) saturate(1772%) hue-rotate(360deg)
+            brightness(101%) contrast(107%);
+        bottom: -130px;
+        left: 180px;
+        transform: scale(0.75);
+    }
+}
+
+// Button Styles
+.btn {
+    padding: 16px 30px;
+    border: none;
+    border-radius: 99px;
+    text-decoration: none;
+    @include montserrat();
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    top: 16px;
+    cursor: pointer;
+    display: block;
+    transition: 0.25s ease-in-out;
+
+    &.primary {
+        color: #fff;
+        background-color: $primary;
+    }
+
+    &.secondary {
+        color: #222;
+        background: #fff;
+    }
+
+    &:hover {
+        opacity: 0.75;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+// Email section
+.email-section {
+    background: $primary;
+    padding: 5em 20px;
+
+    &__container {
+        max-width: $container;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__text {
+        color: #fff;
+        @include lato();
+        font-weight: 800;
+        font-size: 1.75rem;
+    }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 50px;
+    }
+
+    &__input {
+        height: 100%;
+        width: 350px;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 99px 0 0 99px;
+        padding-left: 24px;
+        padding-top: 1px;
+        font-size: 1rem;
+        background-color: transparent;
+        outline: none;
+        transition: 0.25s ease;
+        @include montserrat();
+
+        &:focus {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        &::placeholder {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+
+    &__button {
+        height: 100%;
+        width: 75px;
+        background-color: white;
+        border: none;
+        border-radius: 0 99px 99px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: $primary;
+            font-size: 1.5rem;
+            margin-right: 5px;
+        }
     }
 }

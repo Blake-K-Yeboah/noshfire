@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
   height: 100%;
   width: 100vw;
   overflow-x: hidden;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -62,7 +62,11 @@ html {
   font-family: "Montserrat", sans-serif;
   text-transform: capitalize;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+}
+
+.navbar__brand-text span {
+  font-weight: 300;
 }
 
 .navbar__list {
@@ -83,18 +87,21 @@ html {
   color: #fff;
   font-size: 1rem;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   letter-spacing: 1px;
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
-.navbar__link.active {
-  color: #ffd000;
+.navbar__link.active, .navbar__link:hover {
+  color: #ff7b00;
 }
 
 .header {
   width: 100vw;
   height: 75vh;
+  min-height: 775px;
   padding: 100px 0;
   background: url("../assets/images/header-bg.jpg") center/cover fixed no-repeat;
   display: -webkit-box;
@@ -124,5 +131,192 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.header__title {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.header__title span {
+  color: #ff7b00;
+}
+
+.header__text {
+  color: #ccc;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  width: 75%;
+  margin: 1em auto;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8em;
+}
+
+.header__btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.header__btn-group > .btn:nth-child(2) {
+  margin-left: 15px;
+}
+
+.header__svg {
+  position: absolute;
+  -webkit-filter: invert(48%) sepia(90%) saturate(1772%) hue-rotate(360deg) brightness(101%) contrast(107%);
+          filter: invert(48%) sepia(90%) saturate(1772%) hue-rotate(360deg) brightness(101%) contrast(107%);
+  bottom: -130px;
+  left: 180px;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+}
+
+.btn {
+  padding: 16px 30px;
+  border: none;
+  border-radius: 99px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  position: relative;
+  top: 16px;
+  cursor: pointer;
+  display: block;
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.btn.primary {
+  color: #fff;
+  background-color: #ff7b00;
+}
+
+.btn.secondary {
+  color: #222;
+  background: #fff;
+}
+
+.btn:hover {
+  opacity: 0.75;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+.email-section {
+  background: #ff7b00;
+  padding: 5em 20px;
+}
+
+.email-section__container {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.email-section__text {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-size: 1.75rem;
+}
+
+.email-section__input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 50px;
+}
+
+.email-section__input {
+  height: 100%;
+  width: 350px;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 99px 0 0 99px;
+  padding-left: 24px;
+  padding-top: 1px;
+  font-size: 1rem;
+  background-color: transparent;
+  outline: none;
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.email-section__input:focus {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.email-section__input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.email-section__input:-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.email-section__input::-ms-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.email-section__input::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.email-section__button {
+  height: 100%;
+  width: 75px;
+  background-color: white;
+  border: none;
+  border-radius: 0 99px 99px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.email-section__button i {
+  color: #ff7b00;
+  font-size: 1.5rem;
+  margin-right: 5px;
 }
 /*# sourceMappingURL=main.css.map */
