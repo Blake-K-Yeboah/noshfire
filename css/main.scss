@@ -36,6 +36,19 @@ html {
     scroll-behavior: smooth;
 }
 
+// Scrollbar
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $primary;
+}
+
 // Navbar
 .navbar {
     width: 100vw;
@@ -44,6 +57,8 @@ html {
     position: fixed;
     top: 0;
     left: 0;
+    transition: 0.5s ease-in-out;
+    z-index: 100;
 
     &__content {
         display: flex;
@@ -58,6 +73,7 @@ html {
     &__brand {
         display: flex;
         align-items: center;
+        transition: 0.25s ease;
 
         &-logo {
             width: 50px;
@@ -100,6 +116,25 @@ html {
         &.active,
         &:hover {
             color: $primary;
+        }
+    }
+
+    &__scrolled {
+        background-color: #fff;
+        height: 70px;
+        box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+
+        .navbar__link {
+            color: #222;
+
+            &.active,
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .navbar__brand {
+            filter: invert(1);
         }
     }
 }
@@ -228,14 +263,14 @@ html {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        height: 50px;
+        height: 60px;
     }
 
     &__input {
         height: 100%;
         width: 350px;
         color: #fff;
-        border: 1px solid #fff;
+        border: 2px solid #fff;
         border-radius: 99px 0 0 99px;
         padding-left: 24px;
         padding-top: 1px;
@@ -244,6 +279,7 @@ html {
         outline: none;
         transition: 0.25s ease;
         @include montserrat();
+        border-right: none;
 
         &:focus {
             background-color: rgba(0, 0, 0, 0.15);
@@ -264,11 +300,85 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+        transition: 0.25s ease;
+
+        &:hover {
+            opacity: 0.75;
+        }
 
         i {
             color: $primary;
             font-size: 1.5rem;
             margin-right: 5px;
+        }
+    }
+}
+
+// How We Can Help
+.how-we-can-help {
+    padding: 7.5em 20px;
+
+    &__container {
+        max-width: $container;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        color: #272727;
+        @include lato();
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    &__text {
+        color: #444;
+        @include lato();
+        font-weight: 300;
+        width: 90%;
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.8em;
+        margin: 1.2em 0 3em 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 40px;
+    }
+
+    &__box {
+        background-color: #fff;
+        padding: 30px;
+        box-shadow: 0 0 50px rgba(11, 29, 75, 0.15);
+        border-radius: 7.5px;
+        cursor: default;
+
+        &-icon {
+            color: #aaa;
+            font-size: 2rem;
+        }
+
+        &-title {
+            margin: 20px 0;
+            @include lato();
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #222;
+        }
+
+        &-text {
+            font-size: 1rem;
+            line-height: 1.4em;
+            color: #999;
+            @include lato();
+            font-weight: 500;
         }
     }
 }
